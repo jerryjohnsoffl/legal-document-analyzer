@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predeploy": "cd frontend && npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d frontend/dist",
     "build": "vite build",
     "lint": "eslint .",
