@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="w-screen min-h-screen flex flex-col items-center py-4">
+      <div className="w-full min-h-screen flex flex-col items-center py-4">
         <h1 className="text-3xl text-black md:text-4xl lg:text-5xl font-medium my-8">Legal Document Analyser</h1>
         <Doc />
         <Result />

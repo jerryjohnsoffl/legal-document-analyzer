@@ -7,7 +7,7 @@ const Doc = () => {
         <img src={DocImg} alt="" className='h-8 md:h-14 my-4'/>
         <div className="flex flex-col">
           <label className='py-2 px-4' for="myfile">Upload a legal document:</label>
-          <input className="bg-def-black py-2 px-4 rounded-lg flex justify-center text-white" type="file" accept=".pdf,.docx,.txt" name="" id="myfile" />
+          <input className="bg-def-black py-4 px-8 w-full md:w-60 md:py-2 md:px-4 rounded-lg flex justify-center text-white" type="file" accept=".pdf,.docx,.txt" name="" id="myfile" />
           </div>
     </div>
   )
