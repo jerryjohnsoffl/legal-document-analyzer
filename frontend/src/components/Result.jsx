@@ -15,13 +15,13 @@ const Result = () => {
         </div>
         <div className="flex flex-col md:flex-row my-4">
             <div className="w-full my-2 md:w-1/2 md:mx-2 min-h-36 border-2 outline-none border-solid rounded-lg">
-            <div className="w-full bg-def-black">
+            <div className="w-full rounded-t-md py-2 bg-def-black">
               <h4 className="text-white text-2xl px-4">Risks Found</h4>
             </div>
             <div className=""></div>
             </div>
             <div className="w-full my-2 md:w-1/2 md:mx-2 min-h-36 border-2 outline-none border-solid rounded-lg">
-              <div className="w-full bg-def-black">
+              <div className="w-full rounded-t-md py-2 bg-def-black">
                 <h4 className="text-white text-2xl px-4">Suggestions</h4>
               </div>
               <div className=""></div>
