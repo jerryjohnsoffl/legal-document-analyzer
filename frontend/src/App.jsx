@@ -1,18 +1,36 @@
-import './App.css'
-import Doc from './components/doc'
-import Result from './components/Result'
+import React, { useState } from 'react';
+import Doc from './components/doc';
+import Result from './components/Result';
 
 function App() {
+  const [resultData, setResultData] = useState(null);
+
+  const handleFileUpload = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://localhost:5173/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      setResultData(data);
+    } catch (error) {
+      console.error('Upload failed:', error);
+    }
+  };
 
   return (
-    <>
-      <div className="w-full min-h-screen flex flex-col items-center py-4">
-        <h1 className="text-3xl text-black md:text-4xl lg:text-5xl font-medium my-8">Legal Document Analyser</h1>
-        <Doc />
-        <Result />
-      </div>
-    </>
-  )
+    <div className="w-full min-h-screen flex flex-col items-center py-4">
+      <h1 className="text-3xl text-black md:text-4xl lg:text-5xl font-medium my-8">
+        Legal Document Analyser
+      </h1>
+      <Doc onUpload={handleFileUpload} />
+      {resultData && <Result data={resultData} />}
+    </div>
+  );
 }
 
-export default App
+export default App;
