@@ -30,7 +30,7 @@ const Doc = ({ onUpload }) => {
         id="myfile"
         type="file"
         accept=".txt,.docx,.pdf"
-        className="py-4 my-2 px-8 w-full md:w-60 md:py-2 md:px-4 rounded-lg flex justify-center border border-gray-300"
+        className="py-4 my-2 px-8 w-full md:w-60 md:py-2 md:px-4 rounded-lg flex justify-center border-solid border-2 border-def-black"
         onChange={handleChange}
       />
 
