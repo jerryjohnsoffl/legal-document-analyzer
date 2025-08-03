@@ -5,7 +5,7 @@ import docx
 import requests
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = 'upload'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def extract_text(file_path, file_type):
