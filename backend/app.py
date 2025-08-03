@@ -9,6 +9,10 @@ import requests
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
+headers = {
+    "Authorization": f"Bearer {api_key}"
+}
+
 app = Flask(__name__)
 UPLOAD_FOLDER = 'upload'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
