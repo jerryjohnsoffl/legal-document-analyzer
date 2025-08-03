@@ -6,19 +6,26 @@ function App() {
   const [resultData, setResultData] = useState(null);
 
   const handleFileUpload = async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
+  const formData = new FormData();
+  formData.append('file', file);
 
-    try {
-      const response = await fetch('http://localhost:5173/upload', {
-        method: 'POST',
-        body: formData,
-      });
+  try {
+    const response = await fetch('http://localhost:5173/upload', {
+      method: 'POST',
+      body: formData,
+      // Don't set Content-Type header - FormData handles it automatically
+    });
 
-      const data = await response.json();
-      setResultData(data);
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Upload failed');
+    }
+
+    const data = await response.json();
+    setResultData(data);
     } catch (error) {
-      console.error('Upload failed:', error);
+      console.error('Upload failed:', error.message);
+      throw error; // Propagate to Doc.jsx
     }
   };
 

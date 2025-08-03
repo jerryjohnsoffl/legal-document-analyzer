@@ -5,17 +5,22 @@ const Doc = ({ onUpload }) => {
   const [fileName, setFileName] = useState('');
   const [status, setStatus] = useState('');
 
-  const handleChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFileName(file.name);
-      setStatus('Uploading...');
-      onUpload(file);
+  const handleChange = async (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    setFileName(file.name);
+    setStatus('Uploading...');
+    try {
+      await onUpload(file);
       setStatus('Uploaded ✅');
-    } else {
-      setFileName('');
-      setStatus('');
+    } catch (error) {
+      setStatus('Upload failed ❌');
+      console.error('Upload error:', error);
     }
+  } else {
+    setFileName('');
+    setStatus('');
+  }
   };
 
   return (
